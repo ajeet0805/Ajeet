@@ -1,0 +1,74 @@
+<!--<video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="268"  
+data-setup='{ "playbackRates": [0.5, 1, 1.5, 2],"loopbutton": true  }'
+>
+        <source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
+        <source src="http://vjs.zencdn.net/v/oceans.webm" type='video/webm'>
+</video>-->
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>HLS Demo</title>
+      <link rel="stylesheet" href="css/plyr.css" />
+      <style>/*
+         body {
+         max-width: 1024px;
+         }*/
+      </style>
+   </head>
+   <body>
+      <video preload="none" id="player" autoplay controls crossorigin></video>
+      <script src="js/plyr.js"></script>
+      <script src="js/hls.js"></script>
+      <script>
+         (function () {
+         	var video = document.querySelector('#player');
+         	var playerOptions= {
+         		quality: {
+         			default: '720',
+         			options: ['720']
+         		}
+         	};
+         	var player;
+         	 player = new Plyr(video,playerOptions);
+         	if (Hls.isSupported()) {
+         		var hls = new Hls();
+         		hls.loadSource('https://content.jwplatform.com/manifests/vM7nH0Kl.m3u8');
+         				//hls.loadSource('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8');
+         	hls.attachMedia(video);
+         	hls.on(Hls.Events.MANIFEST_PARSED,function(event,data) {  
+			
+			// uncomment to see data here 
+			//console.log('levels', hls.levels);  we get data here but not able to see in settings.           
+         		playerOptions.quality = {
+         			default: hls.levels[hls.levels.length - 1].height,
+         			options: hls.levels.map((level) => level.height),
+         			forced: true,
+               // Manage quality changes
+                 onChange: (quality) => {
+             	 console.log('changes',quality);
+             	  hls.levels.forEach((level, levelIndex) => {
+             		if (level.height === quality) {
+             			hls.currentLevel = levelIndex;
+             		}
+             	});
+             }
+         };
+        });
+       }
+         
+          // Start HLS load on play event
+          player.on('play', () => hls.startLoad());
+         
+          // Handle HLS quality changes
+          player.on('qualitychange', () => {
+          	console.log('changed');
+          	if (player.currentTime !== 0) {
+          		hls.startLoad();
+          	}
+          });
+         })();
+         
+      </script>
+   </body>
+</html>
