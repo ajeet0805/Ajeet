@@ -1,0 +1,22 @@
+<html>
+<head>
+<script>
+function outerFunction(){
+	 var x = 0;
+	 function InnerFunction(){
+		 return x += 1;
+	 }
+	  return InnerFunction;
+}
+var myFnc = outerFunction();
+console.log(myFnc());
+console.log(myFnc());
+console.log(myFnc());
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+<head>
+<script>
+function mydata()
+{
+this.name="JEET";
+this.last="Lodhi";
+}
+mydata.prototype.age=15;
+var obj1= new mydata();
+
+alert("obj1.age :"+obj1.age);
+var obj2= new mydata();
+
+alert("obj2.age "+obj2.age);
+mydata.prototype={age:20};
+var obj3 = new mydata();
+alert("obj3.age:"+obj3.age);
+alert("obj1.age :"+obj1.age);
+alert("obj2.age :"+obj2.age);
+console.log(mydata.prototype);
+console.log(obj1.prototype);
+console.log(obj1.__proto__);
+
+console.log(typeof mydata.prototype);
+console.log(typeof obj1.__proto__);
+mydata.prototype.syaHi=function(){
+alert("Hi");
+};
+var myObj = new mydata();
+var proto = Object.getPrototypeOf(myObj);//getPrototypeOf
+console.log(proto.constructor);
+/*---------------------------------Inheritence--------------------------------*/
+function Person(firstName,lastName)
+{
+ this.firstName=firstName||"unknown";
+ this.lastName = lastName ||"unknown";
+}
+Person.prototype.getfullName =function ()
+{
+return this.firstName+"__"+this.lastName;
+}
+
+function Student(firstName,lastName,schoolname,grade)
+{
+Person.call(this,firstName,lastName);
+this.schoolname=schoolname || "Unknown";
+this.grade=grade || 0;
+}
+Student.prototype= new Person();
+Student.prototype.constructor = Student;
+var std = new Student("JEET","LODHI","AJEET",1);
+alert(std.getfullName());
+/*----------------------------------------End--------------------------------------*/
+function outerfunction()
+{
+  var outer =100;
+  function innerfunction()
+  {
+  alert(outer);
+  }
+return innerfunction;
+}
+var obj = outerfunction();
+obj();
+</script>
+</head>
+<body>
+</body>
+</html>
