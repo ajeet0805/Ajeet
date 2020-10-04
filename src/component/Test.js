@@ -1,0 +1,84 @@
+import React , {Component} from 'react';
+const Antigen=["A*24:03",
+"B*44:03",
+"B*57:03",
+"C*03:04",
+"C*12:03",
+"A*33:03",
+"B*07:03",
+"B*15:03",
+"B*27:03",
+"C*03:02",
+"C*03:03",
+"C*04:03"
+];
+const epitose=["144K,151H,156Q,166E,167W",
+"9Y,77N,80T,81A,82L,83R,94I,103V,114D,116D",
+"45M,46A,95I,103V,114N,116y,194I",
+"91G,95I,116Y",
+"97W",
+"9F,43Q,95V,149T,152E,156W",
+"171Y,186K",
+"69T,70N,71T,114D,142I,147W,152E,156R,245A",
+"4S,24S,45E,46E,63E,65Q,66I,67S,69T70N,71T,77S",
+"59H,77D,80T,82L,83R",
+"91R,95L,116S",
+"9Y,11A,14R,16S,21H,49A"]
+
+class Test extends Component {
+constructor(){
+	super();
+    this.state={anti:Antigen,epi:epitose,a:''};
+	this.rowClick=this.rowClick.bind(this);
+}
+rowClick=(e)=>{
+	const  idx = e.target.id;
+	const ids = this.state.anti[idx]; console.log(idx,ids);
+	this.setState({a:"red"})
+	
+}
+render(){ 
+  return (	
+	 <div className="w3-container">
+	  <div className="w3-row">
+	  <div className="w3-half">
+	  <table className="w3-table">
+	  <thead>
+	  <tr>
+	  <th>Antigen</th><th>Epitose</th>
+	  </tr>
+	  </thead>
+	 <tbody>
+	  {
+		      
+		      this.state.epi.map((data,i) => {
+              return <tr key={i} onClick={this.rowClick}><td>{this.state.anti[i]}</td>{data}<td></td></tr>	
+		})
+		} 
+		</tbody>
+		</table>
+		
+	  </div>
+	  <div className="w3-half">
+	  {
+		      
+		      this.state.epi.map((data,i) => {
+              return(<span key={i+10}>
+				        {
+						data.split(',').map(f => <div  key ={i} id={this.state.anti[i]} className="w3-button w3-large w3-circle  w3-ripple w3-grey" stye={{color:this.state.a,marginRight :"5px"}}>{f}</div>  )
+				      }
+			      </span>
+			  )
+		})
+		} 
+
+		
+	  </div>
+	  </div>
+	  
+    </div>
+  );
+}
+}
+
+export default Test;
