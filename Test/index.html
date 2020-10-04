@@ -1,0 +1,121 @@
+<html>
+<title>Test</title>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/default.css"/>
+<script>
+function buyOrder(obj)
+{
+ var idx = obj.id;
+ sessionStorage.setItem("imgname",idx);
+ window.location="order.html?"+idx; 
+}
+</script>
+
+</head>
+<body>
+<div class="container">
+	<div class="box">
+		<img src="img/barbe.png" width="100%" height="170px"></img>
+		<div class="bar">
+			<div class="textname"> Barbeque Nation Gi ...</div>
+			<div class="textright"><span style="color:orange;flaot:right">**** </span>* 4.4 </div>
+			
+		</div> 
+			<div class="smallText">Pan India</div>
+			<div class="heart">&#10084;</div>
+		<div class="bottom">
+			<button type="button" id="barbe" onclick="buyOrder(this)">Buy now</button>	
+			
+		</div>
+	</div>
+	<div class="box">
+		<img src="img/faasos.png" width="100%" height="170px"></img> 
+		<div class="bar">		 
+		    <div class="textname">Faason ...</div>
+			<div class="textright"><span style="color:orange;flaot:right">**** </span>* 4.6 </div>
+		  </div> 
+		<div class="smallText">Mumbai ,Pune, Nagpur, Ahmadabad , Varoda ,Delhi,Gurg ....</div>
+		<div class="heart">&#10084;</div>
+		<div class="bottom">		
+			<button type="button" id="faasos" onclick="buyOrder(this)">Buy now</button>	
+		</div>
+	</div>
+	<div class="box">
+		<img src="img/firangi.png" width="100%" height="170px"></img> 
+		<div class="bar">
+		 <div class="textname">Firangi Bake ...</div>
+			<div class="textright"><span style="color:orange;flaot:right">**** </span>* 4.7</div>
+		 </div> 
+		<div class="smallText">Mumbai ,Pune, Nagpur, Ahmadabad , Varoda ,Delhi,Gurg ....</div>
+		<div class="heart">&#10084;</div>
+		<div class="bottom">
+			<button type="button" id="firangi" onclick="buyOrder(this)">Buy now</button>	
+		</div>
+	</div>
+	 <div class="box">
+		<img src="img/good.png" width="100%" height="170px"></img> 
+		<div class="bar">
+			<div class="textname">Good Bowl ...</div>
+			<div class="textright"><span style="color:orange;flaot:right">**** </span>* 4.4</div>
+		  </div>
+			<div class="smallText">Mumbai ,Pune, Nagpur, Ahmadabad , Varoda ,Delhi, Gurg ....</div>
+			<div class="heart">&#10084;</div>
+		<div class="bottom">
+			<button type="button" id="good" onclick="buyOrder(this)">Buy now</button>	
+		</div>
+	</div>
+	
+	 <div class="box">
+		<img src="img/madarin.png" width="100%" height="170px"></img> 
+		<div class="bar">
+		<div class="textname">Mandarin Oak ...</div>
+			<div class="textright"><span style="color:orange;flaot:right">*** </span>** 3.9</div>
+		  </div> 
+		<div class="smallText">Mumbai ,Pune, Nagpur, Ahmadabad , Varoda ,Delhi,Gurg ....</div>
+		<div class="heart">&#10084;</div>
+		<div class="bottom">
+			<button type="button" id="mandarin" onclick="buyOrder(this)">Buy now</button>	
+		</div>
+	</div>
+	 <div class="box">
+		<img src="img/sweet.png" width="100%" height="170px"></img> 
+		<div class="bar">
+		<div class="textname">Sweet Truth ...</div>
+			<div class="textright"><span style="color:orange;flaot:right">**** </span>* 4.5</div>
+		  </div> 
+		  <div class="smallText">Mumbai ,Pune, Nagpur, Ahmadabad , Varoda ,Delhi,Gurg ....</div>
+		  <div class="heart">&#10084;</div>
+		<div class="bottom">
+			<button type="button" id="sweet" onclick="buyOrder(this)">Buy now</button>	
+		</div>
+	</div>
+	 <div class="box">
+		<img src="img/bakingo.png" width="100%" height="170px"></img> 
+		<div class="bar">		
+		<div class="textname">Bakingo ...</div>
+			<div class="textright"><span style="color:orange;flaot:right">**** </span>* 4.4</div>
+		  </div> 
+		  <div class="smallText">Mumbai ,Pune, Nagpur, Ahmadabad , Varoda ,Delhi,Gurg ....</div>
+		  <div class="heart">&#10084;</div>
+		<div class="bottom">
+			<button type="button" id="bakingo" onclick="buyOrder(this)">Buy now</button>	
+		</div>
+	</div>
+	 <div class="box">
+		<img src="img/roseate.png" width="100%" height="170px"></img> 
+		<div class="bar">
+		<div class="textname">Roseate Hotel ...</div>
+			<div class="textright"><span style="color:orange;flaot:right">*** </span>** 3.2</div>
+		  </div> 
+		  <div class="smallText">Mumbai ,Pune, Nagpur, Ahmadabad , Varoda ,Delhi,Gurg ....</div>
+		  <div class="heart">&#10084;</div>
+		<div class="bottom">
+			<button type="button" id="roseate" onclick="buyOrder(this)">Buy now</button>	
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>

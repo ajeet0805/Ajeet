@@ -1,0 +1,28 @@
+.container{ wisth:99.99%; height:99.99%;}
+.box{ width:24.23%; height:250px; float:left; border:1px solid #999; margin-left:6px; z-index:99; position:relative;
+ margin-top:8px;border-radius:7px}
+.bar{width:99%;height: 25px;border:0px solid #000;font-weight:bold;font-size:17px;}
+.bottom{height:20px;bottom:5;position:absolute;right:5px;}
+ button{border:1px solid #000;cursor:pointer;}
+.textname{width:60%;float:left;}
+.textright{width:38%;float:left;text-align:right}
+.smallText{font-size:11px;}
+.heart{height:20px;bottom:5;position:absolute;color:red;}
+@media screen and (min-width:100px) and (max-width: 350px) {
+	
+	.box{width:99.33% !important;}
+}
+@media screen and (min-width:351px) and (max-width:499px)
+{
+.box{width:99.33% !important;}
+}
+
+@media screen and (min-width:500px) and (max-width:699px)
+{
+.box{width:48.33% !important;;}
+}
+
+@media screen and (min-width:700px) and (max-width:1024px)
+{
+.box{width:31.53%;}
+}
